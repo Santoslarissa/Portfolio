@@ -1,0 +1,469 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Quando&display=swap');
+
+body {
+    font-family: 'Quando', sans-serif;
+    color: #1E1E2A;
+}
+
+.header-container {
+    height: 100vh;
+    width: 100vw;
+    background-color: #60E1E0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 112px;
+    position: relative;
+}
+
+.imagem-fundo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.descricao {
+    text-align: center;
+    margin-top: 30px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+.social-media {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    gap: 4px;
+}
+
+.social-media a {
+    padding: 0.5rem 2rem;
+}
+
+.social-media a {
+    text-decoration: none;
+    color: #1E1E2A;
+    padding: 1rem 4rem;
+    border: 1px solid #1E1E2A;
+    min-width: 4rem;
+    display: flex;
+    align-items: center;
+    transition: .5s ease-in-out;
+}
+
+a:hover {
+    background-color: #ffffff;
+}
+
+/* menu hamburguer*/
+.checkbox-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999;
+    transition: 400ms ease-in-out 0s;
+}
+
+.checkbox .trace {
+    width: 50px;
+    height: 2px;
+    background-color: #1E1E2A;
+    position: absolute;
+    border-radius: 4px;
+    transition: 0.5s ease-in-out;
+}
+
+.checkbox .trace:nth-child(1) {
+    top: 26px;
+    transform: rotate(0);
+}
+
+.checkbox .trace:nth-child(2) {
+    top: 46px;
+    transform: rotate(0);
+}
+
+.checkbox .trace:nth-child(3) {
+    top: 66px;
+    transform: rotate(0);
+}
+
+#toggle {
+    display: none;
+}
+
+/*menu*/
+.menu {
+    position: absolute;
+    top: 28px;
+    right: 30px;
+    background-color: transparent;
+    height: 4px;
+    width: 10px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 0px #ffffff;
+    z-index: -1;
+    transition: 400ms ease-in-out 0s;
+}
+
+.menu-items {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: 400ms ease-in-out 0s;
+}
+
+.menu-items ul {
+    list-style-type: none;
+}
+
+.menu-items ul li a {
+    margin: 10px 0;
+    color: #31dddd;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 40px;
+    background-color: transparent;
+    transition: font-size 0.2s;
+}
+
+.menu-items ul li a:hover {
+    font-size: 45px;
+    color: #9ffafa;
+}
+
+/*Animação*/
+#toggle:checked + .checkbox .trace:nth-child(1) {
+    transform: rotate(45deg);
+    top: 47px;
+    background-color: #60E1E0;
+    position: fixed;
+}
+
+#toggle:checked + .checkbox .trace:nth-child(2) {
+    transform: translate(-100px);
+    width: 30px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#toggle:checked + .checkbox .trace:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 48px;
+    background-color: #60E1E0;
+    position: fixed;
+}
+
+#toggle:checked + .checkbox {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+#toggle:checked ~ .menu {
+    box-shadow: 0px 0px 0px 100vmax #031318;
+    z-index: 1;
+    opacity: 0.92;
+    position: fixed;
+    text-align: center;
+    cursor: pointer;
+    padding: 0;
+}
+
+#toggle:checked ~ .menu-items {
+    visibility: visible;
+    opacity: 1;
+}
+
+/*Cards*/
+.container {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 3rem 0;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #60E1E0;
+    background-image: url(./img/Meu-projeto.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: grayscale(0.5);
+    color: #1E1E2A;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.card-text {
+    width: 40%;
+    letter-spacing: 1px;
+    color: rgb(109, 109, 109);
+}
+
+.card-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card-wrapper::before {
+    content: '';
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: block;
+    border: 1px transparent;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+}
+
+.card-wrapper h2 {
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+    transition: 0.5s ease-in-out;
+}
+
+.card-wrapper p {
+    font-size: 0;
+    visibility: visible;
+    opacity: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.5s ease-in-out;
+}
+
+.card:hover {
+    filter: unset;
+}
+
+.card:hover > .card-wrapper::before {
+    height: 200px;
+    width: 200px;
+    opacity: 1;
+}
+
+.card:hover > .card-wrapper p {
+    opacity: 1;
+    visibility: visible;
+    font-size: 10px;
+}
+
+/*Footer*/
+.footer {
+    width: 100%;
+    height: 100px auto;
+    background-color: #60E1E0;
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    color: #1E1E2A;
+}
+
+.footer-conteiner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.contato-creditos {
+    color: #031318;
+    font-family: 'Quando', serif;
+    font-size: 15px;
+    padding: 10px 0;
+}
+
+.icons {
+    display: flex;
+    gap: 15px;
+}
+
+.transparente {
+    transition: ease-in-out 0.3s;
+}
+
+.transparente:hover {
+    opacity: 0;
+}
+
+.links1, .links2 {
+    height: 35px;
+    width: 35px;
+    background-size: contain;
+    background-position: left;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: 0.7s;
+}
+
+.links:hover {
+    transform: rotate(-360deg);
+}
+
+.links1 {
+    background-image: url(/img/github2.png);
+}
+
+.links2 {
+    background-image: url(/img/linkedin2.png);
+}
+
+.transparente {
+    transition: ease-in-out 0.3s;
+}
+
+.transparente:hover {
+    opacity: 0;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 60px 40px;
+    }
+
+    .descricao {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    .social-media a {
+        padding: 0.5rem 2rem;
+    }
+
+    .header-container {
+        justify-content: flex-start;
+    }
+
+    .header-container .descricao {
+        order: 2;
+    }
+
+    .header-container .imagem-fundo {
+        order: 1;
+    }
+
+    .menu-items ul li a {
+        font-size: 30px;
+    }
+
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 250px;
+        height: 250px;
+        margin: 20px 0;
+    }
+
+    .card-text {
+        width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    .header-container {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    .social-media a {
+        padding: 0.5rem 2rem;
+    }
+
+    .menu-items ul li a {
+        font-size: 25px;
+    }
+
+    .card {
+        width: 200px;
+        height: 200px;
+        margin: 10px 0;
+    }
+
+    .card-text {
+        font-size: 12px;
+    }
+}
